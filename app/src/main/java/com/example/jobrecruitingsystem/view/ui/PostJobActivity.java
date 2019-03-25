@@ -38,10 +38,11 @@ public class PostJobActivity extends AppCompatActivity implements View.OnClickLi
         companyEditText = findViewById(R.id.companyName);
         salaryEditText = findViewById(R.id.salary);
         jobTitleEditText = findViewById(R.id.jobTitle);
-        skillsSpinner = findViewById(R.id.skillsSpinner);
+        skillsSpinner =(Spinner) findViewById(R.id.skillsSpinner);
 
         addSkillView.setOnClickListener(this);
         String token = "Bearer "+getIntent().getStringExtra("token");
+
 
         postJobViewModel = ViewModelProviders.of(this).get(PostJobViewModel.class);
         postJobViewModel.getSkillList(token).observe(this, new Observer<List<Skills>>() {
